@@ -9,6 +9,22 @@ void print(vector<int> arr) {
     } std::cout<<std::endl;
 }
 
+/**
+ * 
+vector<int> solution(vector<int> numbers) { // 2중 for문 사용, set 컨테이너 사용해서 자동으로 중복 방지
+    set<int> sum;
+
+    for (int i=0; i<numbers.size(); ++i) {
+        for (int j=i+1; j<numbers.size(); ++j) {
+            sum.insert(numbers[i]+numbers[j]);
+        }
+    }
+
+    vector<int> ans(sum.begin(),sum.end());
+    return ans;
+}
+ * 
+ */
 vector<int> solution(vector<int> numbers) {
 
     vector<int> ans;
