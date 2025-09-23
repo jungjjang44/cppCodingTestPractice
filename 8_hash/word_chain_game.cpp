@@ -1,3 +1,5 @@
+// 21번 영어 끝말잇기 답안
+
 #include <bits/stdc++.h>
 
 using namespace std;
