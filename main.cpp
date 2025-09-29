@@ -1,28 +1,22 @@
-#include <bits/stdc++.h>
+// 이진 탐색 트리 구현
+/**
+ * lst 배열에 있는 값을 통해 이진 탐색 트리를 생성하고, 이 이진 트리 탐색으로 search_lst 배열의 각 원소가 있는지 확인합니다. 각 원소가 이진 탐색 트리에 존재하면, true
+ * 없으면 false를 반환하는 함수 solution()을 작성하세요.
+ * 
+ */
 
+
+#include <bits/stdc++.h>
 using namespace std;
 
-vector<int> solution(int n, vector<string> words) {
-    vector<int> answer(2,0);
-    unordered_set<string> usedWords;
-    usedWords.insert(words[0]);
 
-    // 두번째 단어부터 끝까지 반복
-    for (int i=1;i<words.size();++i){
-        if (!usedWords.insert(words[i]).second || words[i].front()!=words[i-1].back()) {
-            answer[0]=i%n+1;
-            answer[1]=i/n+1;
-            return answer;
-        }
-    }
-    return answer;
+vector<bool> solution(vector<int> lst, vector<int> search_lst) {
+    vector<bool> ans;
+    return ans;
 }
 
 
-
-
-int main() {
-
+int main () {
 
     return 0;
 }
