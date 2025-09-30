@@ -49,42 +49,33 @@ void compare(Node* &node, int num) {
     return;
 }
 
-bool search(Node* &node, int num) {
+bool search(Node* node, int num) {
+    if (node==nullptr) return false;
     if (num==node->value) return true;
-    else if (num<node->value) {
-        if (node->left==nullptr) return false;
-        else search(node->left,num);
-    } 
-    else if (num>node->value) {
-        if (node->right==nullptr) return false;
-        else search(node->right,num);
-    }
-    return false;
+    if (num<node->value) search(node->left,num);
+    else search(node->right,num);
 }
 
 vector<bool> solution(vector<int> lst, vector<int> search_lst) {
-    vector<bool> ans;
-    return ans;
-}
-
-
-int main () {
-    Node* root=new Node(5);
-    vector<int> lst={5,3,8,4,2,1,7,10};
-    vector<int> search_lst={1,2,5,6};
+    Node* root=new Node(lst[0]);
     for (int value:lst){
-        if (value==5) continue;
+        if (value==lst[0]) continue;
         else compare(root,value);
     }
-
     vector<bool> answer;
     for (int value:search_lst) {
         bool ans=search(root,value);
         answer.push_back(ans);
     }
+    return answer;
+}
+
+int main () {
+    vector<int> lst={5,3,8,4,2,1,7,10};
+    vector<int> search_lst={1,2,5,6};
+    vector<bool> answer=solution(lst,search_lst);
 
     for (bool ans:answer) std::cout<<ans<<" ";
     std::cout<<std::endl;
-
     return 0;
 }
