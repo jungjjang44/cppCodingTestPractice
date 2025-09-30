@@ -46,9 +46,20 @@ void compare(Node* &node, int num) {
             return;
         } else compare(node->right,num);
     }
-
-
     return;
+}
+
+bool search(Node* &node, int num) {
+    if (num==node->value) return true;
+    else if (num<node->value) {
+        if (node->left==nullptr) return false;
+        else search(node->left,num);
+    } 
+    else if (num>node->value) {
+        if (node->right==nullptr) return false;
+        else search(node->right,num);
+    }
+    return false;
 }
 
 vector<bool> solution(vector<int> lst, vector<int> search_lst) {
@@ -58,8 +69,22 @@ vector<bool> solution(vector<int> lst, vector<int> search_lst) {
 
 
 int main () {
-    Node node(5); // 1. 5라는 노드 생성
-    compare(*node,3);
+    Node* root=new Node(5);
+    vector<int> lst={5,3,8,4,2,1,7,10};
+    vector<int> search_lst={1,2,5,6};
+    for (int value:lst){
+        if (value==5) continue;
+        else compare(root,value);
+    }
+
+    vector<bool> answer;
+    for (int value:search_lst) {
+        bool ans=search(root,value);
+        answer.push_back(ans);
+    }
+
+    for (bool ans:answer) std::cout<<ans<<" ";
+    std::cout<<std::endl;
 
     return 0;
 }
