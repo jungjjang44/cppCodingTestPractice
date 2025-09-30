@@ -17,6 +17,37 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class Node {
+public:
+    int value;
+    Node* left; 
+    Node* right;
+
+    Node(int num) {
+        this->value=num;
+        this->left=nullptr;
+        this->right=nullptr;
+    }
+};
+
+// 벡터 노드?
+// 이진 트리 만들기 함수
+void compare(Node node, int num) {
+    if (num<node.value) {
+        if (node->left==nullptr) {
+            node->left=*node(num);
+            return;
+        } else compare(node->left,num); // 이상함-노드 자체를 넣어야 하는데, 포인터를 넣고 있음
+    } else {
+        if (node->right==nullptr) {
+            node->right=*node(num);
+            return;
+        } else compare(node->right,num);
+    }
+
+
+    return;
+}
 
 vector<bool> solution(vector<int> lst, vector<int> search_lst) {
     vector<bool> ans;
@@ -25,6 +56,13 @@ vector<bool> solution(vector<int> lst, vector<int> search_lst) {
 
 
 int main () {
+    Node node(5); // 1. 5라는 노드 생성
+    int number=3; // 3이라는 숫자가 다음에 나옴
+    Node node3(3); // 3 노드 생성
+    if (number<5) node->left=*node3;
+    else (number>5) node->right=*node3;
+    Node node8(8);
+    if (number<5)
 
     return 0;
 }
