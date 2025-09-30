@@ -35,13 +35,13 @@ public:
 void compare(Node* &node, int num) {
     if (num<node->value) {
         if (node->left==nullptr) {
-            newNode=new Node(num);
+            Node* newNode=new Node(num);
             node->left=newNode;
             return;
         } else compare(node->left,num); // 이상함-노드 자체를 넣어야 하는데, 포인터를 넣고 있음
     } else {
         if (node->right==nullptr) {
-            newNode=new Node(num);
+            Node* newNode=new Node(num);
             node->right=newNode;
             return;
         } else compare(node->right,num);
@@ -59,12 +59,7 @@ vector<bool> solution(vector<int> lst, vector<int> search_lst) {
 
 int main () {
     Node node(5); // 1. 5라는 노드 생성
-    int number=3; // 3이라는 숫자가 다음에 나옴
-    Node node3(3); // 3 노드 생성
-    // if (number<5) node->left=*node3;
-    // else (number>5) node->right=*node3;
-    // Node node8(8);
-    // if (number<5)
+    compare(*node,3);
 
     return 0;
 }
